@@ -1,0 +1,1 @@
+start python auto_capper.py  & start python -m http.server

@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title>EmirPC</title>
+        <link rel="apple-touch-icon" href="app-icon.png"> 
+
+    <script>
+    function updateImage() {
+
+    obj = document.imagename;
+
+    obj.src = obj.src + "?" + Math.random();
+
+    setTimeout("updateImage()",5000);
+
+    }
+    updateImage();
+    </script>
+    </head>
+
+    <body>
+        <center>
+        <img src="screenshot/Screenshot.png" name="screenshot" width="960" height="540">
+        </center>
+    </body>
+</html>
