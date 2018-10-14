@@ -1,9 +1,18 @@
+import configparser
 import datetime
 import time
-import cap_win as cap
+
+def get_settings():
+    config = configparser.ConfigParser()
+    config.read('capwin.ini')
+    ss_interval = config['Screenshot']['ss_interval']
+    return int(ss_interval)
 
 starttime=time.time()
 success_saving = 0
+ss_interval = float(get_settings() / 1000)
+
+import cap_win as cap
 
 while True:
 
@@ -16,11 +25,10 @@ while True:
     except:
         success_saving = 0
     
-    
     if success_saving:
         print(loop_date + " :: Screenshot saved.")
     
     else:
         print(loop_date + " :: Error while saving screenshot...")
 
-    time.sleep(5.0 - ((time.time() - starttime) % 5.0))
+    time.sleep(ss_interval - ((time.time() - starttime) % ss_interval))

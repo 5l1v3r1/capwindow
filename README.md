@@ -1,6 +1,8 @@
 # capwindow
 check your pc screen on lan
 
-less than 40 lines of python code and a little bit html + js
+less than 60 lines of python code(200~ with with the gui) and a little bit html + js
 
 ![capwin_gif](https://github.com/humanova/capwindow/blob/master/media/capwin_gif.gif "capwindow") 
+
+![capwin_gif2](blahblah "capwindow") 
