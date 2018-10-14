@@ -32,7 +32,7 @@ class Window(QtWidgets.QWidget):
     def init_ui(self):
         
         self.setWindowTitle("CapWin GUI")
-        self.setGeometry(600, 350, 240, 290)
+        self.setGeometry(600, 350, 255, 300)
 
         self.server_timer = QtCore.QTimer()
         self.server_time = QtCore.QTime(0, 0, 0)
@@ -91,7 +91,7 @@ class Window(QtWidgets.QWidget):
             with open('capwin.ini', 'w') as configfile:
                 config.write(configfile)
 
-            self.save_label.setText("New interval : " + str(new_interval) + " ms | Show Console : " + str(new_show_ss_saved))
+            self.save_label.setText("New interval : " + str(new_interval) + " ms | Show scrshot info : " + str(new_show_ss_saved))
         except:
             self.save_label_label.setText("Error while saving settings...")
     
@@ -99,7 +99,7 @@ class Window(QtWidgets.QWidget):
         os.system('cls')
         self.ss_interval, self.show_ss_saved = get_settings()
         print("Screenshot interval : ", self.ss_interval)
-        print("Show console : ", self.show_ss_saved)
+        print("Show screenshot info : ", self.show_ss_saved)
 
         if(self.show_ss_saved):
             #os.system('start_server.bat')
