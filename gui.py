@@ -98,21 +98,20 @@ class Window(QtWidgets.QWidget):
         self.show()    
         
     def save_settings(self):
-        new_interval = self.ss_interval_le.value()
-        new_server_port = self.server_port_le.value()
-        new_show_ss_saved = self.show_ss_saved_setting.isChecked()
-        self.show_ss_saved = new_show_ss_saved
+        self.ss_interval = self.ss_interval_le.value()
+        self.server_port = self.server_port_le.value()
+        self.show_ss_saved = self.show_ss_saved_setting.isChecked()
         
         config.read("capwin.ini")
-        config["Screenshot"]["ss_interval"] = str(new_interval)
-        config['Server']['server_port'] = str(new_server_port)
-        config["Server"]["show_ss_saved"] = str(new_show_ss_saved)
+        config["Screenshot"]["ss_interval"] = str(self.ss_interval)
+        config['Server']['server_port'] = str(self.server_port)
+        config["Server"]["show_ss_saved"] = str(self.show_ss_saved)
 
         try:
             with open('capwin.ini', 'w') as configfile:
                 config.write(configfile)
 
-            self.save_label.setText("New interval : " + str(new_interval) + " ms | New port : " + str(new_server_port))
+            self.save_label.setText("New interval : " + str(self.ss_interval) + " ms | New port : " + str(self.server_port))
         except:
             self.save_label_label.setText("Error while saving settings...")
     
