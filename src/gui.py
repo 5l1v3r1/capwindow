@@ -124,15 +124,16 @@ class Window(QtWidgets.QWidget):
 
             if(self.show_ss_saved):
                 #os.system('start_server.bat')
-                self.server_process = subprocess.Popen(['python', 'server.py'])
-                self.auto_capper_process = subprocess.Popen(['python', 'auto_capper.py'])
+                self.server_process = subprocess.Popen(['python', 'src/server.py'])
+                self.auto_capper_process = subprocess.Popen(['python', 'src/auto_capper.py'])
             else:
                 #os.system('start_server_nc.bat')
-                self.server_process = subprocess.Popen(['python', 'server.py'])
-                self.auto_capper_process = subprocess.Popen(['pythonw', 'auto_capper.py'])
+                self.server_process = subprocess.Popen(['python', 'src/server.py'])
+                self.auto_capper_process = subprocess.Popen(['pythonw', 'src/auto_capper.py'])
 
             self.is_online = True
             self.server_info_label.setText("Server Status : ONLINE")
+            self.save_label.setText('...')
             self.server_timer.timeout.connect(self.server_timer_event)
             self.server_timer.start(1000)
         
